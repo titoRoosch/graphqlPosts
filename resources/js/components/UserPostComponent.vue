@@ -21,7 +21,7 @@
                         <th scope="col" class="border-0">Post</th>
                     </tr>
                 </thead>
-                <tbody ref="options_table" v-for="row in rows">
+                <tbody ref="options_table" v-for="row in rows" v-bind:key="row.id">
                     
                     <tr>
                         <td>{{row.id}}</td>

@@ -20,7 +20,7 @@ services:
     - ${APPLICATION_NETWORK}
   volumes:
     - "./data:/var/lib/mysql"
- phpmyadmin_aplicacao:
+ phpmyadmin_application:
   image: phpmyadmin/phpmyadmin
   deploy:
    placement:
@@ -34,7 +34,7 @@ services:
    - ${PHPMYADMIN_PORT}:80
   volumes: 
    - /sessions
- aplicacao:
+ application:
   image: leolegends/microservices_php:stable
   deploy:
    replicas: 1

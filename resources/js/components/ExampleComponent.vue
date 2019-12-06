@@ -10,7 +10,6 @@
                     </div>
                 </div>
             </div>
-           
         </div>
         <div class="card-body p-0 pb-3 text-center"  style="max-height:200px; overflow: auto" >
             <table class="table mb-0">
@@ -20,8 +19,7 @@
                         <th scope="col" class="border-0">Nome</th>
                     </tr>
                 </thead>
-                <tbody ref="options_table" v-for="row in rows">
-                    
+                <tbody ref="options_table" v-for="row in rows" v-bind:key="row.id">
                     <tr>
                         <td>{{row.id}}</td>
                         <td>{{row.name}}</td>
@@ -45,10 +43,7 @@
                         ]
                 }
         },
-        
         computed:{
-
-
         },
         mounted() {
             this.getUsersGraphQl()
@@ -64,18 +59,14 @@
                         this.rows = data.data.user_query;   
                 });
             },
-
             getUserPosts(id){
                 window.axios.post(this.graphQL, {
                     query: "{user_query(id:"+id+") {   id, name posts{user_id, title}  }}",
-                  
                 }).then(({data}) => { 
                      //console.log(data) ;
-                        
                         this.rows = data.data.user_query;   
                 });
             }
-           
         }
     }
 </script>
